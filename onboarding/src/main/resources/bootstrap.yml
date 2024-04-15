@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: onboarding
+  datasource:
+    url: jdbc:mysql://mysql-db1-onboarding:3306/onboarding_db?createDatabaseIfNotExist=true
+    username: ${usernameDB}
+    password: ${passwordDB}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate.ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceURL:
+      defaultZone: http://wallet-ms-eureka:8761/eureka
+        
+springdoc:
+  api-docs:
+    path: /onboarding-docs
