@@ -22,15 +22,15 @@ spring:
           enabled: true
       routes:
         - id: onboarding
-          uri: http://wallet-ms-onboarding:8081/
+          uri: http://107.20.4.249/
           predicates:
             - Path=/onboarding/v1/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/onboarding-docs
         - id: login
-          uri: http://wallet-ms-aaa:8082/
+          uri: http://34.207.166.163/
           predicates:
             - Path=/v1/auth/**,/v1/password/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/login-docs
         - id: mail-sender
-          uri: http://wallet-ms-mail-sender:8084/
+          uri: http://54.146.187.207/
           predicates:
             - Path=/mail-sender/v1/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/mail-sender-docs
 
@@ -42,4 +42,4 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceURL:
-      defaultZone: http://wallet-ms-eureka:8761/eureka
+      defaultZone: http://http://54.227.159.6/eureka
