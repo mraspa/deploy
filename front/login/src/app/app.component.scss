@@ -1,0 +1,20 @@
+@import "primeicons/primeicons.css";
+@import "primeng/resources/primeng.css";
+@import "primeflex/primeflex.css";
+
+// Para usos especificos
+:root{
+    --secondary-color: #F01159;
+    --text-accent: #F01159;
+}
+
+body, html, login-root {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Inter", sans-serif;
+}
+
+.container{
+    min-height: 100vh;
+}

@@ -1,0 +1,31 @@
+<p-sidebar [position]="'bottom'" [blockScroll]= "true" [(visible)]="visible" styleClass="h-25rem">
+    <div class="modal flex flex-column h-full">
+      <div class="flex h-full pb-2 text-white justify-content-between flex-column gap-3">
+        
+        <div class="flex flex-column gap-3 align-items-center">
+            <i *ngIf="modalInfo.icon" [class]="modalInfo.icon" style="color: #F01159; font-size: 70px;"></i>
+
+            <h2 class="m-0 size24">{{modalInfo.title}}</h2>
+
+            <div>
+              <img width="320" *ngIf="modalInfo.img" [src]="setAsseturl(modalInfo.img)" [alt]="modalInfo.altImg || 'img'">
+            </div>
+           
+            <p class="m-0 text-medium-standard text-center container-text">{{modalInfo.message}}</p>    
+        </div>
+       
+        
+        
+        <div *ngIf="modalInfo.footer" class="flex flex-column gap-2 align-items-center">
+            <p-button *ngIf="modalInfo.footer.buttonExittext" (onClick)="visible = false"> {{modalInfo.footer.buttonExittext}} </p-button>
+            <p  *ngIf="modalInfo.footer.textLink && modalInfo.footer.link"
+                (click)="visible = false"
+                [routerLink]="modalInfo.footer.link" 
+                class="m-0 text-medium-standard colorPrimary font-bold">{{modalInfo.footer.textLink}}</p>
+        </div>
+      
+        
+    </div>
+    </div>
+  </p-sidebar>
+  

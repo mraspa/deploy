@@ -1,0 +1,32 @@
+.p-sidebar {
+    background: #1C284C;
+    color: $panelContentTextColor;
+    border: $overlayContentBorder;
+    border-radius: 10px 10px 0 0;
+    width: 100vw;
+    height: 40vh;
+    max-height: 500px;
+    box-shadow: $overlayContainerShadow;
+
+    .p-sidebar-header {
+        padding: $panelHeaderPadding;
+
+        .p-sidebar-close,
+        .p-sidebar-icon {
+            @include action-icon();
+            color: white;
+        }
+
+        & + .p-sidebar-content {
+            padding-top: 0;
+        }
+    }
+
+    .p-sidebar-content {
+        padding: $panelContentPadding;
+    }
+
+    .p-sidebar-footer {
+        padding: $panelHeaderPadding;
+    }
+}

@@ -1,0 +1,11 @@
+
+
+#layoutSpa{
+    display: grid;
+    grid-template-areas:  
+        "header header header"  
+        "main main main"  
+        "footer footer footer";
+    height: 100%;
+    background-color: red;
+}

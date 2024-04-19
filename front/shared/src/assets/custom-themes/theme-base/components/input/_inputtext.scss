@@ -1,0 +1,171 @@
+
+.p-inputtext {
+    font-family: 'Satoshi-Bold', sans-serif;
+    font-feature-settings: var(--font-feature-settings, normal);
+    font-size: $inputTextFontSize;
+    color: white;
+    background: #05142C;
+    padding: $inputPadding;
+    border: $inputBorder;
+    transition: $formElementTransition;
+    appearance: none;
+    border-radius: 10px;
+    height: 54px;
+    caret-color: white;
+
+    &:enabled:hover {
+        border-color: $inputHoverBorderColor;
+    }
+
+    &:enabled:focus {
+        @include focused-input();
+    }
+
+    &:empty{
+        background-color: #1C284C;
+    }
+
+    &.ng-dirty.ng-invalid {
+        @include invalid-input();
+        background-color: #05142C;
+    }
+
+    &.ng-invalid.ng-touched{
+        @include invalid-input();
+    }
+
+    &.ng-valid.ng-dirty {
+        background-color: #05142C;
+    }
+
+    &.p-inputtext-sm {
+        @include scaledFontSize($inputTextFontSize, $scaleSM);
+        @include scaledPadding($inputPadding, $scaleSM);
+    }
+
+    &.p-inputtext-lg {
+        @include scaledFontSize($inputTextFontSize, $scaleLG);
+        @include scaledPadding($inputPadding, $scaleLG);
+    }
+
+    &.p-inputotp-input{
+        width: 40px;
+        text-align: center;
+        background-color: #1C284C !important;
+    }
+
+    &.p-inputotp-input.p-filled:not(:focus){
+        background-color: #1C284C !important;
+        border: 2px solid white !important;
+    }
+}
+
+.p-float-label > label {
+    left: nth($inputPadding, 2);
+    color: $inputPlaceholderTextColor;
+    transition-duration: $transitionDuration;
+}
+
+.p-float-label > .ng-invalid.ng-dirty + label {
+    color: $inputErrorBorderColor;
+}
+
+.p-input-icon-left > .p-icon-wrapper.p-icon,
+.p-input-icon-left > i:first-of-type {
+    left: nth($inputPadding, 2);
+    color: white;
+}
+
+.p-input-icon-left > .p-inputtext {
+    padding-left: nth($inputPadding, 2) * 2 + $primeIconFontSize;
+}
+
+.p-input-icon-left.p-float-label > label {
+    left: nth($inputPadding, 2) * 2 + $primeIconFontSize;
+}
+
+.p-input-icon-right > .p-icon-wrapper,
+.p-input-icon-right > i:last-of-type {
+    right: nth($inputPadding, 2);
+    color: white;
+}
+
+.p-input-icon-right > .p-inputtext {
+    padding-right: nth($inputPadding, 2) * 2 + $primeIconFontSize;
+}
+
+.p-inputtext:-webkit-autofill,
+.p-inputtext:-webkit-autofill:hover, 
+.p-inputtext:-webkit-autofill:focus, 
+.p-inputtext:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #23232329;
+}
+
+
+.p-inputtext:focus:enabled,  
+.p-inputtext:hover 
+{ 
+    box-shadow: none; 
+    background-color: #05142C;
+
+}
+
+.p-input-icon-right i {
+    color: white;
+    font-size: 26px;
+    top: 23px !important;
+}
+
+.p-float-label label { 
+    color: white;
+    background-color: #1C284C;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: 'Satoshi-Bold', sans-serif;
+}
+
+.p-inputtext:valid ~ label{
+    background-color: #05142C !important;
+}
+
+
+.p-float-label:hover label 
+{ 
+    background-color: #05142C !important;
+}
+
+
+@include placeholder {
+    color: $inputPlaceholderTextColor
+};
+
+.p-input-filled {
+    .p-inputtext {
+        background-color: $inputFilledBg;
+
+        &:enabled:hover {
+            background-color: $inputFilledHoverBg;
+        }
+
+        &:enabled:focus {
+            background-color: $inputFilledFocusBg;
+        }
+    }
+}
+
+.p-inputtext-sm {
+    .p-inputtext {
+        @include scaledFontSize($inputTextFontSize, $scaleSM);
+        @include scaledPadding($inputPadding, $scaleSM);
+    }
+}
+
+.p-inputtext-lg {
+    .p-inputtext {
+        @include scaledFontSize($inputTextFontSize, $scaleLG);
+        @include scaledPadding($inputPadding, $scaleLG);
+    }
+}

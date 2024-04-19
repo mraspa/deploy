@@ -1,0 +1,92 @@
+<main class="flex flex-column justify-content-center align-items-center h-full pt-5">
+            
+    <h4 class="m-0 mt-6">¡Muy bien!</h4>
+    <h6 class="m-0 text-medium-standard text-center mt-3">
+        Te enviamos un código de confirmación <br/>
+        Revisa tu correo electrónico {{ userInfo?.maskedMail }}
+    </h6>
+
+    <div   
+        class="flex flex-column h-full w-full p-4 justify-content-between">
+
+        <div  class="flex h-full flex-column gap-4 justify-content-center align-items-center">
+
+                <form [formGroup]="codeGroup" (ngSubmit)="onSubmit()" class="flex h-full flex-column justify-content-between">
+                        <div class="flex flex-column gap-3">
+                            <div class="flex gap-3">
+                                <input  pInputText 
+                                        type="text" 
+                                        [maxLength]="1"
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        [formControlName]="'code1'"
+                                        pKeyFilter="alphanum" 
+                                        (keyup)="onKeyup($event)" 
+                                        class="custom-otp-input text-center"
+                                        [style]="{width: '45px', backgroundColor: '#1C284C'}"
+                                        #firstInput
+                                        autofocus
+                                />
+    
+                                <input  pInputText 
+                                        type="text" 
+                                        [maxLength]="1"
+                                        pKeyFilter="alphanum"
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        [formControlName]="'code2'" 
+                                        (keyup)="onKeyup($event)" 
+                                        class="custom-otp-input text-center"
+                                        [style]="{width: '45px', backgroundColor: '#1C284C'}"
+                                        
+                                />
+    
+                                <input  pInputText 
+                                        type="text" 
+                                        [maxLength]="1"
+                                        pKeyFilter="alphanum"
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        [formControlName]="'code3'" 
+                                        (keyup)="onKeyup($event)" 
+                                        class="custom-otp-input text-center"
+                                        [style]="{width: '45px', backgroundColor: '#1C284C'}"
+                                        
+                                />
+                                
+                                <input  pInputText 
+                                        type="text" 
+                                        [maxLength]="1"
+                                        pKeyFilter="alphanum"
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        [formControlName]="'code4'" 
+                                        (keyup)="onKeyup($event)" 
+                                        class="custom-otp-input text-center"
+                                        [style]="{width: '45px', backgroundColor: '#1C284C'}"
+                                        
+                                />
+    
+                            </div>
+                            <div class="flex flex-column justify-content-center align-items-center">
+                                <h6 class="m-0 text-medium-standard mb-2">¿No recibiste el código?</h6>
+                                <span *ngIf="!sendingCode; else isSendingCode" class="color" (click)="resendCode()">
+                                    Reenviar
+                                </span>
+                                <ng-template #isSendingCode>
+                                    <span class="color">
+                                        <i class="pi pi-spin pi-spinner"></i>
+                                        Reenviando...
+                                    </span>
+                                </ng-template>
+                            </div>
+                        </div>
+                        
+            
+                        <div class="flex flex-column gap-2 align-items-center">
+                            <p-button type="submit" [loading]="loading" label="Continuar"/>
+                            <small *ngIf="formInvalid()" class="errorAlert">*Los campos son requeridos</small>
+                        </div>
+                </form>
+        </div> 
+    
+      
+
+    </div>
+</main>

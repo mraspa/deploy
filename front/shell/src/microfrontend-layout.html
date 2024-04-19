@@ -1,0 +1,34 @@
+
+
+
+<single-spa-router>
+
+      <route path="auth">
+        <route path="login">
+          <application name="@wallet/login"></application>
+        </route>
+
+        <route path="onboarding">
+          <application name="@wallet/onboarding"></application>
+        </route>
+      </route>
+     
+      <route path="lifestyle"> 
+        <div class="layoutSpa">
+          <application name="@wallet/header"></application>
+          <application name="@wallet/lifestyle"></application>
+          <application name="@wallet/footer"></application>
+        </div>
+      </route>
+
+      <route path="wallet">
+        <div class="layoutSpa">
+          <application name="@wallet/header"></application>
+          <application name="@wallet/wallet"></application>
+          <application name="@wallet/footer"></application>
+        </div>
+      </route>
+
+</single-spa-router>
+
+

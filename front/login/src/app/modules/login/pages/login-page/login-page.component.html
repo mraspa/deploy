@@ -1,0 +1,61 @@
+    <div class="layout">
+        
+        <shared-header/>
+
+        <main class="flex flex-column justify-content-center align-items-center h-full">
+            
+                <h4 class="m-0 mt-5">¡Hola!</h4>
+                <h6 class="m-0 text-medium-standard">
+                    Qué bueno verte por acá
+                </h6>
+    
+                <form   [formGroup]="loginGroup"
+                        (ngSubmit)="onSubmit()"
+                        class="flex flex-column h-full w-full p-4 justify-content-between">
+                   <div class="w-full">
+    
+                    <h6 class="m-0 mb-3 text-medium-standard">Comenzá ingresando tus datos</h6>
+    
+                    <div class="mb-2">
+                        <span class="p-float-label">
+                            <input  pInputText 
+                                    id="email"   
+                                    class="w-full" 
+                                    formControlName="email"
+                                    />
+                            <label for="email">Email</label>
+                        </span>
+                        <small class="mt-3 ml-1 errorAlert">{{isInvalidField('email') ? getErrorField('email') : ''}} </small>
+                    </div>
+    
+                    <div>
+                        <span class="p-float-label w-full p-input-icon-right">
+                            <i [class]="isPassHidden ?  'pi pi-eye' : 'pi pi-eye-slash'" (click)="switchPassShow()"></i>
+                            <input  pInputText 
+                                    id="password"  
+                                    formControlName="password" 
+                                    [type]="isPassHidden ? 'password' : 'text'" 
+                                    class="w-full"
+                                    />
+                            <label for="password">Password</label>
+                        </span>
+                        <small class="mt-3 ml-1 errorAlert">{{isInvalidField('password') ? getErrorField('password') : ''}} </small>
+                    </div>
+    
+                       
+                   </div> 
+                  
+                    <div class="flex flex-column gap-2 align-items-center">
+                        <p-button type="submit" [loading]="loading" label="Iniciar Sesión"/>
+                        <p class="m-0 text-medium-standard colorPrimary" (click)="navigate('/auth/onboarding')">¿No tenés cuenta? registrate acá</p>
+                        <p class="m-0 text-medium-standard colorPrimary" [routerLink]="'/recovery'">¿Problemas para ingresar a tu cuenta?</p>
+                    </div>
+            
+                </form>
+        </main>
+    
+    
+    
+    </div>
+
+    

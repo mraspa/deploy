@@ -1,0 +1,28 @@
+
+h4{
+    font-size: 20px;
+}
+
+.text-medium-standard{
+    font-size: 16px;
+}
+
+.colorPrimary{
+    color: #F01159;
+}
+
+.errorAlert{
+    color: red;
+}
+
+
+.errorInput{
+    border: 2px solid red !important;
+}
+
+.layout{
+    display: grid;
+    width: 100vw;
+    min-height: 100vh;
+    grid-template-rows: 30% 1fr;
+}
