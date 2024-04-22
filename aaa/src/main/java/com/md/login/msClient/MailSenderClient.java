@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Map;
 
 
-@FeignClient(name = "mail-sender", url = "localhost:8080/mail-sender/v1")
+@FeignClient(name = "mail-sender", url = "52.91.213.17:8080/mail-sender/v1")
 public interface MailSenderClient {
     @PostMapping("/sendSimpleMessage")
     Map<String,String> emailSender(@RequestBody EmailDto emailDto);

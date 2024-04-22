@@ -5,7 +5,7 @@ spring:
   application:
     name: login
   datasource:
-    url: jdbc:mysql://localhost:3306/login_db?createDatabaseIfNotExist=true
+    url: jdbc:mysql://34.204.9.49:3306/login_db?createDatabaseIfNotExist=true
     username: matias
     password: matias123
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -22,7 +22,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceURL:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://54.167.168.2:8761/eureka
 
 springdoc:
   api-docs:

@@ -22,15 +22,15 @@ spring:
           enabled: true
       routes:
         - id: client
-          uri: http://107.20.4.249:9090/
+          uri: http://3.91.204.169:9090/
           predicates:
             - Path=/onboarding/v1/**,/clients/v1/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/client-docs
         - id: login
-          uri: http://34.207.166.163:9090/
+          uri: http://54.166.93.83:9090/
           predicates:
             - Path=/v1/auth/**,/v1/password/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/login-docs
         - id: mail-sender
-          uri: http://54.146.187.207:9090/
+          uri: http://52.23.248.123:9090/
           predicates:
             - Path=/mail-sender/v1/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/mail-sender-docs
 
@@ -42,4 +42,4 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceURL:
-      defaultZone: http://54.227.159.6/eureka
+      defaultZone: http://54.167.168.2:8761/eureka

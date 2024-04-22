@@ -16,7 +16,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceURL:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://54.167.168.2:8761/eureka
 
 springdoc:
   api-docs:
