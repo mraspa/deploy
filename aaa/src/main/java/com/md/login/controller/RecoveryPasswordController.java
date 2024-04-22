@@ -1,5 +1,6 @@
 package com.md.login.controller;
 
+import com.md.login.documentation.RecoveryPasswordApi;
 import com.md.login.exception.ExpiredCodeException;
 import com.md.login.exception.InvalidCodeException;
 import com.md.login.exception.InvalidPasswordException;
@@ -24,12 +25,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/v1/password")
 @Validated
-public class RecoveryPasswordController {
+public class RecoveryPasswordController implements RecoveryPasswordApi {
     private final RecoveryCodeService recoveryCodeService;
     private final EmailService emailService;
 
     @PostMapping("/recovery")
-    public ResponseEntity<MaskedMailDto> passwordRecovery(@RequestBody RecoveryRequestDto recoveryRequestDto) throws InvalidCodeException {
+    @Override
+    public ResponseEntity<MaskedMailDto> passwordRecovery(@Valid @RequestBody RecoveryRequestDto recoveryRequestDto) throws InvalidCodeException {
 
         recoveryCodeService.saveRecoveryCode(recoveryRequestDto);
         emailService.sendEmail(recoveryRequestDto);
@@ -37,6 +39,7 @@ public class RecoveryPasswordController {
     }
 
     @PostMapping("/validate-code")
+    @Override
     public ResponseEntity<HttpStatus> validateCode(@Valid @RequestBody ValidateCodeDto validateCodeDto) throws ExpiredCodeException, InvalidCodeException {
         recoveryCodeService.validateCode(validateCodeDto);
         return ResponseEntity.ok().build();
@@ -44,6 +47,7 @@ public class RecoveryPasswordController {
     }
 
     @PatchMapping("/reset")
+    @Override
     public ResponseEntity<HttpStatus> passwordReset(@Valid @RequestBody ResetPaswordDto resetPaswordDto) throws  InvalidPasswordException {
         recoveryCodeService.resetPassword(resetPaswordDto);
         return ResponseEntity.ok().build();

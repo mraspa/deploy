@@ -21,16 +21,16 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: onboarding
-          uri: http://107.20.4.249/
+        - id: client
+          uri: http://107.20.4.249:9090/
           predicates:
-            - Path=/onboarding/v1/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/onboarding-docs
+            - Path=/onboarding/v1/**,/clients/v1/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/client-docs
         - id: login
-          uri: http://34.207.166.163/
+          uri: http://34.207.166.163:9090/
           predicates:
             - Path=/v1/auth/**,/v1/password/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/login-docs
         - id: mail-sender
-          uri: http://54.146.187.207/
+          uri: http://54.146.187.207:9090/
           predicates:
             - Path=/mail-sender/v1/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/mail-sender-docs
 

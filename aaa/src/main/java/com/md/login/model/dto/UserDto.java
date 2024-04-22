@@ -26,7 +26,7 @@ public class UserDto {
     @Size(min = 8, max = 8, message = "document number must be 8 digits long")
     @Pattern(regexp = "\\d+", message = "document number must contain only numbers")
     private String documentNumber;
-    @Size(min = 11, max = 11,message = "tramit number must be 8 digits long")
+    @Size(min = 11, max = 11,message = "tramit number must be 11 digits long")
     @Pattern(regexp = "\\d+", message = "tramit number must contain only numbers")
     private String tramitNumber;
 
