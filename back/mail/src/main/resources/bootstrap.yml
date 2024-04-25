@@ -1,0 +1,23 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: mail-sender
+
+mail:
+  host: localhost
+  port: 1025
+  senderUsername: mobyenviomail@gmail.com
+  senderPassword: mvnducrlupfyikqc
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceURL:
+      defaultZone: http://3.85.227.193:8761/eureka
+
+springdoc:
+  api-docs:
+    path: /mail-sender-docs

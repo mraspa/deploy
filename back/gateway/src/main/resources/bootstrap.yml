@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: client
+          uri: http://54.174.43.82:9090/
+          predicates:
+            - Path=/onboarding/v1/**,/clients/v1/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/client-docs
+        - id: login
+          uri: http://3.83.132.172:9090/
+          predicates:
+            - Path=/v1/auth/**,/v1/password/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/login-docs
+        - id: mail-sender
+          uri: http://100.26.193.197:9090/
+          predicates:
+            - Path=/mail-sender/v1/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/mail-sender-docs
+        - id: account
+          uri: http://174.129.153.148:9090/
+          predicates:
+            - Path=/v1/account/**,/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v3/api-docs,/webjars/**,/view/**,/account-docs
+
+#          filters:
+#            -
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceURL:
+      defaultZone: http://3.85.227.193:8761/eureka

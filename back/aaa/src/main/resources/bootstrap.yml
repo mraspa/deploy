@@ -1,0 +1,29 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: login
+  datasource:
+    url: jdbc:mysql://54.87.136.170:3306/login_db?createDatabaseIfNotExist=true
+    username: matias
+    password: matias123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate.ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceURL:
+      defaultZone: http://3.85.227.193:8761/eureka
+
+springdoc:
+  api-docs:
+    path: /login-docs
