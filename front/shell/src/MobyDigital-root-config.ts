@@ -1,4 +1,4 @@
-import { registerApplication, start } from "single-spa";
+import { navigateToUrl, registerApplication, start } from "single-spa";
 
 import {
   constructApplications,
@@ -7,12 +7,20 @@ import {
 } from "single-spa-layout";
 
 import microfrontendLayout from "./microfrontend-layout.html";
+import { jwt } from "@shared/jwt";
+
 
 const routes = constructRoutes(microfrontendLayout);
 
 const applications = constructApplications({
   routes,
   loadApp({ name }) {
+    
+    if(name === "@wallet/wallet" || name === "@wallet/header" || name === "@wallet/footer"){
+      let token = localStorage.getItem("KEYTOKEN");
+      if(!token) location.href ='http://localhost:9000/auth/login';
+
+    }
     const moduleMap = {
       "@wallet/login": () => import("@login/module"),
       "@wallet/onboarding": () => import("@onboarding/module"),

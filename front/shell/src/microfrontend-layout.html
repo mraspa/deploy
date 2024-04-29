@@ -14,19 +14,27 @@
       </route>
      
       <route path="lifestyle"> 
-        <div class="layoutSpa">
-          <application name="@wallet/header"></application>
-          <application name="@wallet/lifestyle"></application>
-          <application name="@wallet/footer"></application>
-        </div>
+        <application name="@wallet/lifestyle"></application>
       </route>
 
-      <route path="wallet">
-        <div class="layoutSpa">
-          <application name="@wallet/header"></application>
-          <application name="@wallet/wallet"></application>
-          <application name="@wallet/footer"></application>
-        </div>
+      <route path="main">
+        
+        <route path="wallet">
+          <div class="layoutSpa">
+            <application name="@wallet/header"></application>
+            <application name="@wallet/wallet"></application>
+            <application name="@wallet/footer"></application>
+          </div>
+        </route>
+
+        <route path="lifestyle">
+          <div class="layoutSpa">
+            <application name="@wallet/header"></application>
+            <application name="@wallet/lifestyle"></application>
+            <application name="@wallet/footer"></application>
+          </div>
+        </route>
+       
       </route>
 
 </single-spa-router>

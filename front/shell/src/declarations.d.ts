@@ -44,3 +44,17 @@ declare module "@lifestyle/module"
 declare module "@header/module"
 declare module "@footer/module"
 declare module "@wallet/module"
+
+
+declare module "@shared/jwt"{
+  class Jwt {
+      private _token;
+      private readonly KEYTOKEN;
+      constructor();
+      getToken(): string;
+      setToken(token: string): void;
+      clearToken():void;
+      private loadLocalStorage;
+  }
+  export const jwt: Jwt;
+}

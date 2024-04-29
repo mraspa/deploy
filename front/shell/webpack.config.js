@@ -38,6 +38,7 @@ module.exports = (webpackConfigEnv, argv) => {
           "@wallet": "wallet",
           "@header": "header",
           "@footer": "footer",
+          "@shared": "shared",
         },
         exposes: {},
         shared: ["single-spa"],
